@@ -484,14 +484,14 @@
       { nome: "Mel gourmet uruçu amarela", linha: "Méis Gourmet", categoria: "Mel", conteudo: "130 g", apresentacao: "Vidro transparente" },
       { nome: "Mel gourmet uruçu amarela 100g", linha: "Méis Gourmet", categoria: "Mel", conteudo: "100 g", apresentacao: "Pote plástico" },
       { nome: "Mel gourmet uruçu nordestina 100g", linha: "Méis Gourmet", categoria: "Mel", conteudo: "100 g", apresentacao: "Pote" },
-      { nome: "Extrato de própolis - Borá", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "" },
+      { nome: "Extrato de própolis - Borá", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar", descricao: "Extrato de própolis da abelha nativa Borá (Tetragona clavipes), produzido artesanalmente em Matozinhos · MG. De aroma marcante e sabor intenso — resultado das resinas que as borás coletam da mata nativa —, vem em frasco de vidro âmbar com conta-gotas, pronto para o uso diário, puro ou diluído em água ou mel." },
       { nome: "Extrato de própolis - Mandaçaia", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Extrato de própolis - Mandaguari amarela", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Extrato de própolis - Mandaguari preta", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Extrato de própolis - Marmelada", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Extrato de própolis - Mombucão", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Extrato de própolis - Tubuna", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
-      { nome: "Extrato de própolis de Mirim Droryana", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "", apresentacao: "Vidro âmbar" },
+      { nome: "Extrato de própolis de Mirim Droryana", linha: "Própolis", categoria: "Extrato de própolis", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
       { nome: "Spray composto Mel e própolis", linha: "Própolis", categoria: "Spray composto", conteudo: "30 ml", apresentacao: "Plástico âmbar" }
     ];
 
@@ -552,7 +552,7 @@
       modalConteudo.appendChild(categoria);
 
       const descricao = document.createElement("p");
-      descricao.textContent = "Consulte nossa equipe para conhecer a descrição confirmada deste produto e saber se ele está disponível.";
+      descricao.textContent = produto.descricao || "Consulte nossa equipe para conhecer a descrição confirmada deste produto e saber se ele está disponível.";
       modalConteudo.appendChild(descricao);
 
       const subtitulo = document.createElement("h3");
