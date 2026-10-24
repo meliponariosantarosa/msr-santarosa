@@ -175,6 +175,9 @@
       background: var(--branco);
       min-width: 0;
     }
+    .produto-visual.has-foto { padding: 0; min-height: 0; background: var(--branco); }
+    .produto-visual img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .modal-foto { width: 100%; max-height: 340px; object-fit: cover; border-radius: 8px; margin: 6px 0 16px; display: block; }
     .produto-visual {
       min-height: 145px;
       display: grid;
@@ -486,41 +489,41 @@
     const WHATSAPP = "5531984144772";
 
     const produtos = [
-      { nome: "Bálsamo hidratante cicatrizante", linha: "Essencial", categoria: "Corpo", conteudo: "20 g", apresentacao: "Pote plástico" },
-      { nome: "Cera hidratante de cutículas", linha: "Essencial", categoria: "Unhas", conteudo: "15 g", apresentacao: "Pote plástico" },
-      { nome: "Escalda-pés", linha: "Essencial", categoria: "Pés", conteudo: "20 g", apresentacao: "Tubete" },
-      { nome: "Fluido fungicida para unhas", linha: "Essencial", categoria: "Unhas", conteudo: "30 ml", apresentacao: "Frasco plástico" },
-      { nome: "Repelente bifásico", linha: "Essencial", categoria: "Corpo", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Bálsamo hidratante cicatrizante", linha: "Essencial", categoria: "Corpo", conteudo: "20 g", apresentacao: "Pote plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/balsamo-fb4328018ac555d70917720457466032-1024-1024.webp" },
+      { nome: "Cera hidratante de cutículas", linha: "Essencial", categoria: "Unhas", conteudo: "15 g", apresentacao: "Pote plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/cera-para-unhas-2ed1a322bf167a692117720499137782-1024-1024.webp" },
+      { nome: "Escalda-pés", linha: "Essencial", categoria: "Pés", conteudo: "20 g", apresentacao: "Tubete" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/escalda-pes-alecrim-5379fcd4adfa7d409217720531710827-1024-1024.webp" },
+      { nome: "Fluido fungicida para unhas", linha: "Essencial", categoria: "Unhas", conteudo: "30 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/fluido-para-unha-918e0b3325cd317fe817720488674832-1024-1024.webp" },
+      { nome: "Repelente bifásico", linha: "Essencial", categoria: "Corpo", conteudo: "120 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/balsamo-1-1dfda56c9e6009ac6717720460209714-1024-1024.webp" },
       { nome: "Vela de massagem", linha: "Essencial", categoria: "Corpo", conteudo: "150 g", apresentacao: "Lata decorada" },
 
-      { nome: "Banho de mel", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "250 ml", apresentacao: "Frasco plástico" },
+      { nome: "Banho de mel", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "250 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/banho-de-mel-4e6ed53aadf8b41c8617694680462633-1024-1024.webp" },
       { nome: "Banho de mel", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
-      { nome: "Condicionador sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "50 g", apresentacao: "Caixa kraft" },
+      { nome: "Condicionador sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "50 g", apresentacao: "Caixa kraft" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-38-56-9164b0750d8b1feba517694690700719-1024-1024.webp" },
       { nome: "Hidratante corporal — manteiga", linha: "Nativa", categoria: "Corpo", conteudo: "150 g", apresentacao: "Pote plástico" },
-      { nome: "Hidratante corporal", linha: "Nativa", categoria: "Corpo", conteudo: "50 g", apresentacao: "Pote plástico" },
-      { nome: "Hidratante facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "30 g", apresentacao: "Pote plástico" },
-      { nome: "Lip balm mel e própolis", linha: "Nativa", categoria: "Lábios", conteudo: "4,5 g", apresentacao: "Lipstick" },
+      { nome: "Hidratante corporal", linha: "Nativa", categoria: "Corpo", conteudo: "50 g", apresentacao: "Pote plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-29-1-8553481c535556d1eb17694691454936-1024-1024.webp" },
+      { nome: "Hidratante facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "30 g", apresentacao: "Pote plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-25-a647c07e2b0e0f242317694692670564-1024-1024.webp" },
+      { nome: "Lip balm mel e própolis", linha: "Nativa", categoria: "Lábios", conteudo: "4,5 g", apresentacao: "Lipstick" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/lip-balm-mel-e-propolis-balsamo-1eafe8d2d1e1d2ce7d17720509360748-1024-1024.webp" },
       { nome: "Sabonete abelha mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "45 g", apresentacao: "Plástico" },
       { nome: "Sabonete abelha mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "80 g", apresentacao: "Plástico" },
-      { nome: "Sabonete em barra com bucha vegetal", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "180 g", apresentacao: "Plástico" },
-      { nome: "Sabonete em barra mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" },
-      { nome: "Sabonete íntimo líquido", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
-      { nome: "Sabonete líquido mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Sabonete em barra com bucha vegetal", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "180 g", apresentacao: "Plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-22-2-d9d8236f7a1206694517694679107608-1024-1024.webp" },
+      { nome: "Sabonete em barra mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-19-4-1edbbd5b0370d4acf517694686253716-1024-1024.webp" },
+      { nome: "Sabonete íntimo líquido", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-27-3-2a36b37227bab8598217694692032902-1024-1024.webp" },
+      { nome: "Sabonete líquido mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/whatsapp-image-2026-01-23-at-15-39-31-a9f8c22791a434725817694693249214-1024-1024.webp" },
       { nome: "Sabonete líquido rosto e corpo", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "250 ml", apresentacao: "Frasco plástico" },
       { nome: "Sérum facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
-      { nome: "Sérum facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "20 ml", apresentacao: "Vidro âmbar" },
-      { nome: "Shampoo sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "70 g", apresentacao: "Caixa kraft" },
+      { nome: "Sérum facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "20 ml", apresentacao: "Vidro âmbar" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/fotos-site-18-fd99261a6ca405fc4817694651208480-1024-1024.webp" },
+      { nome: "Shampoo sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "70 g", apresentacao: "Caixa kraft" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/fotos-site-1-08bcea74ab2e902c0217648773505685-1024-1024.webp" },
 
-      { nome: "Gel de limpeza facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" },
-      { nome: "Hidratante corporal banho de mel", linha: "Ritual", categoria: "Corpo", conteudo: "250 ml", apresentacao: "Frasco plástico" },
-      { nome: "Hidratante facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "", apresentacao: "Pote plástico" },
-      { nome: "Sabonete em barra arroz e mel", linha: "Ritual", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" },
-      { nome: "Sérum facial aquoso — dia", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro transparente" },
-      { nome: "Sérum facial oleoso — noite", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
-      { nome: "Tônico facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Gel de limpeza facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-5-e536d01a0d90b1f5eb17717121733103-1024-1024.webp" },
+      { nome: "Hidratante corporal banho de mel", linha: "Ritual", categoria: "Corpo", conteudo: "250 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-9-253c388199e319adbf17717140407911-1024-1024.webp" },
+      { nome: "Hidratante facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "", apresentacao: "Pote plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-12-e9efb6d2e2ba1bb70d17717136531943-1024-1024.webp" },
+      { nome: "Sabonete em barra arroz e mel", linha: "Ritual", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-3-7e1db26e5968f35a2917717119920897-1024-1024.webp" },
+      { nome: "Sérum facial aquoso — dia", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro transparente" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-14-7ff1f4e59b6a780f8817717129507645-1024-1024.webp" },
+      { nome: "Sérum facial oleoso — noite", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro âmbar" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-16-d9030e461746626d2e17717131654686-1024-1024.webp" },
+      { nome: "Tônico facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/tubuna-1-7-cfa6741dcfc973602d17717127142364-1024-1024.webp" },
 
-      { nome: "Bioembalagem reutilizável — grande", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" },
-      { nome: "Bioembalagem reutilizável — média", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" }
+      { nome: "Bioembalagem reutilizável — grande", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/embalagem-ecologica-1-b13c2710a5797ad3b917296444029781-1024-1024.webp" },
+      { nome: "Bioembalagem reutilizável — média", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" , foto: "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/embalagem-ecologica-1-b13c2710a5797ad3b917296444029781-1024-1024.webp" }
     ];
 
     const busca = document.getElementById("busca");
@@ -564,6 +567,14 @@
       fechar.setAttribute("aria-label", "Fechar detalhes do produto");
       fechar.addEventListener("click", () => modal.close());
       modalConteudo.appendChild(fechar);
+
+      if (produto.foto) {
+        const fotoModal = document.createElement("img");
+        fotoModal.className = "modal-foto";
+        fotoModal.src = produto.foto;
+        fotoModal.alt = produto.nome;
+        modalConteudo.appendChild(fotoModal);
+      }
 
       const etiqueta = document.createElement("span");
       etiqueta.className = "etiqueta";
@@ -645,9 +656,18 @@
 
         const visual = document.createElement("div");
         visual.className = "produto-visual";
-        const nomeVisual = document.createElement("span");
-        nomeVisual.textContent = "MSR Melicosméticos";
-        visual.appendChild(nomeVisual);
+        if (produto.foto) {
+          visual.classList.add("has-foto");
+          const img = document.createElement("img");
+          img.src = produto.foto;
+          img.alt = produto.nome;
+          img.loading = "lazy";
+          visual.appendChild(img);
+        } else {
+          const nomeVisual = document.createElement("span");
+          nomeVisual.textContent = "MSR Melicosméticos";
+          visual.appendChild(nomeVisual);
+        }
         card.appendChild(visual);
 
         const info = document.createElement("div");
