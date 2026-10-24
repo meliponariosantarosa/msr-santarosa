@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#593b30">
+  <meta name="description" content="MSR Melicosméticos — cosméticos naturais com mel e própolis de abelhas nativas. Catálogo da MSR Santa Rosa · Matozinhos, MG.">
+  <title>MSR Melicosméticos | Catálogo — MSR Santa Rosa</title>
+  <style>
+    :root {
+      --terra: #593b30;
+      --terra-claro: #805d4c;
+      --creme: #f8f4eb;
+      --branco: #fffdf8;
+      --oliva: #626b45;
+      --oliva-claro: #e9ebdf;
+      --bronze: #b28a58;
+      --texto: #38352e;
+      --suave: #777167;
+      --borda: #e8e0d3;
+      --sombra: 0 10px 28px rgba(65, 48, 35, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0;
+      background: var(--creme);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+
+    .topo {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--terra);
+      color: var(--creme);
+      box-shadow: 0 3px 15px #00000012;
+    }
+    .topo-interno {
+      max-width: 1180px;
+      margin: auto;
+      padding: 15px 24px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .marca { display: inline-block; line-height: 1.15; }
+    .marca-nome {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+    }
+    .marca-sub {
+      display: block;
+      margin-top: 6px;
+      color: #e2c7a2;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    .menu { display: flex; flex-wrap: wrap; gap: 22px; font-size: 13px; }
+    .menu a:hover { color: #e2c7a2; }
+    .menu-botao {
+      display: none;
+      color: var(--creme);
+      border: 1px solid #ffffff55;
+      background: transparent;
+      border-radius: 8px;
+      padding: 7px 11px;
+    }
+
+    .hero {
+      background: var(--branco);
+      padding: 76px 24px 68px;
+      text-align: center;
+      border-bottom: 1px solid var(--borda);
+    }
+    .sobretitulo {
+      color: var(--oliva);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal; }
+    .hero h1 {
+      max-width: 760px;
+      margin: 16px auto;
+      color: var(--terra);
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.12;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 27px;
+      color: var(--suave);
+      font-size: 16px;
+    }
+    .botoes { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      padding: 12px 19px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .botao:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+    .botao-oliva { background: var(--oliva); color: white; }
+    .botao-terra { background: var(--terra); color: white; }
+    .botao-contorno { border-color: var(--oliva); color: var(--oliva); background: transparent; }
+
+    .secao { max-width: 1180px; margin: auto; padding: 65px 24px; }
+    .cabecalho-secao { max-width: 670px; margin-bottom: 30px; }
+    .cabecalho-secao h2 {
+      color: var(--terra);
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 8px 0 12px;
+    }
+    .cabecalho-secao p { margin: 0; color: var(--suave); }
+    .linhas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .linha-card {
+      padding: 23px 20px;
+      border-radius: 9px;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .linha-card:nth-child(even) { background: var(--oliva-claro); }
+    .linha-card:hover { transform: translateY(-3px); box-shadow: var(--sombra); }
+    .linha-numero { color: var(--bronze); font-size: 12px; letter-spacing: 2px; }
+    .linha-card h3 { color: var(--terra); font-size: 22px; margin: 8px 0; }
+    .linha-card p { color: var(--suave); font-size: 13px; margin: 0 0 16px; }
+    .texto-link { color: var(--oliva); font-weight: bold; font-size: 13px; }
+
+    .catalogo { background: var(--branco); border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+    .catalogo .secao { padding-top: 65px; }
+    .filtros {
+      display: grid;
+      grid-template-columns: minmax(180px, 2fr) minmax(150px, 1fr) minmax(150px, 1fr);
+      gap: 12px;
+      margin: 25px 0 12px;
+    }
+    .campo {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 13px;
+      border: 1px solid var(--borda);
+      border-radius: 7px;
+      background: white;
+      color: var(--texto);
+      outline-color: var(--oliva);
+    }
+    .resultado { color: var(--suave); font-size: 12px; margin: 12px 0 20px; }
+    .produtos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; }
+    .produto {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: var(--branco);
+      min-width: 0;
+    }
+    .produto-visual {
+      min-height: 145px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(145deg, #eeeadf, #e4e6d8);
+      color: var(--oliva);
+    }
+    .produto-visual span {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      max-width: 150px;
+    }
+    .produto-info { padding: 16px; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+    .etiqueta {
+      display: inline-block;
+      color: var(--oliva);
+      background: var(--oliva-claro);
+      border-radius: 4px;
+      padding: 3px 7px;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .produto h3 { color: var(--terra); font-size: 19px; line-height: 1.3; margin: 10px 0 7px; }
+    .produto p { color: var(--suave); font-size: 12px; margin: 0 0 14px; }
+    .preco { color: var(--terra); font-size: 12px; font-weight: bold; margin-top: auto; margin-bottom: 13px; }
+    .produto-acoes { width: 100%; display: grid; gap: 8px; }
+    .produto-acoes .botao { width: 100%; padding: 10px 8px; font-size: 12px; }
+    .vazio { grid-column: 1 / -1; padding: 35px; text-align: center; color: var(--suave); }
+    .limpar { border: 0; padding: 8px 0; background: transparent; color: var(--oliva); font-weight: bold; }
+
+    .destaque {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 35px;
+      align-items: center;
+      background: var(--oliva-claro);
+      border-radius: 12px;
+      padding: 35px;
+    }
+    .destaque h2 { color: var(--terra); font-size: 34px; line-height: 1.2; margin: 10px 0; }
+    .destaque p { color: #625f53; }
+    .destaque-bloco {
+      padding: 25px;
+      background: #ffffffa8;
+      border-radius: 8px;
+      border-left: 3px solid var(--bronze);
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--terra);
+      font-size: 21px;
+    }
+    .desenvolvimento { background: var(--branco); }
+    .desenvolvimento-card {
+      padding: 26px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: var(--creme);
+    }
+    .desenvolvimento-card h3 { color: var(--terra); font-size: 24px; margin-top: 0; }
+    .desenvolvimento-card p { color: var(--suave); }
+
+    .contato { background: var(--terra); color: var(--creme); text-align: center; }
+    .contato .secao { padding-top: 55px; padding-bottom: 55px; }
+    .contato h2 { font-size: 37px; margin: 7px 0; }
+    .contato p { color: #e2d6c9; max-width: 580px; margin: 0 auto 23px; }
+    .contato .sobretitulo { color: #e2c7a2; }
+
+    footer { background: #3e2b24; color: #eee5d8; padding: 28px 24px; }
+    .rodape {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .rodape p { margin: 5px 0; font-size: 12px; color: #d0c0b1; }
+    .rodape-links { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; }
+
+    dialog {
+      width: min(620px, calc(100% - 28px));
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 0;
+      color: var(--texto);
+      background: var(--branco);
+      box-shadow: 0 20px 80px #0004;
+    }
+    dialog::backdrop { background: #241c18a6; }
+    .modal-conteudo { padding: 28px; }
+    .modal-fechar {
+      float: right;
+      border: 1px solid var(--borda);
+      background: transparent;
+      border-radius: 6px;
+      padding: 5px 10px;
+    }
+    .modal-conteudo h2 { color: var(--terra); font-size: 30px; line-height: 1.2; margin: 20px 0 10px; }
+    .modal-conteudo p, .modal-conteudo li { color: var(--suave); font-size: 14px; }
+    .modal-conteudo h3 { color: var(--terra); font-size: 19px; }
+    .modal-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+    @media (max-width: 900px) {
+      .linhas { grid-template-columns: repeat(2, 1fr); }
+      .produtos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .menu { gap: 12px; }
+    }
+    @media (max-width: 650px) {
+      .topo-interno { padding: 12px 16px; flex-wrap: wrap; }
+      .marca-nome { font-size: 23px; }
+      .menu-botao { display: inline-block; }
+      .menu { display: none; width: 100%; flex-direction: column; gap: 0; padding: 5px 0 10px; }
+      .menu.aberto { display: flex; }
+      .menu a { padding: 9px 0; border-top: 1px solid #ffffff20; }
+      .hero { padding: 52px 20px; }
+      .hero h1 { font-size: 39px; }
+      .secao { padding: 45px 17px; }
+      .linhas { gap: 10px; }
+      .linha-card { padding: 17px 14px; }
+      .linha-card h3 { font-size: 19px; }
+      .filtros { grid-template-columns: 1fr 1fr; }
+      .filtros input { grid-column: 1 / -1; }
+      .produtos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .produto-visual { min-height: 115px; }
+      .produto-info { padding: 12px; }
+      .produto h3 { font-size: 17px; }
+      .produto p { font-size: 12px; }
+      .destaque { grid-template-columns: 1fr; padding: 23px; gap: 15px; }
+      .destaque h2 { font-size: 29px; }
+      .contato h2 { font-size: 31px; }
+      .modal-conteudo { padding: 20px; }
+    }
+    @media (max-width: 360px) {
+      .produtos { grid-template-columns: 1fr 1fr; }
+      .produto-acoes .botao { font-size: 11px; padding: 9px 4px; }
+      .marca-nome { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-interno">
+      <a class="marca" href="#inicio" aria-label="MSR Melicosméticos, início">
+        <span class="marca-nome">MSR SANTA ROSA</span>
+        <span class="marca-sub">MSR MELICOSMÉTICOS</span>
+      </a>
+      <button class="menu-botao" id="menuBotao" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+      <nav class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#linhas">Linhas</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#essencia">Nossa essência</a>
+        <a href="#novidades">Em desenvolvimento</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <span class="sobretitulo">MSR Santa Rosa · Cosmética natural das abelhas nativas</span>
+      <h1>A natureza inspira.<br>O cuidado transforma.</h1>
+      <p>Um convite para viver o cuidado de forma mais consciente, valorizando o artesanal, os ingredientes e as escolhas que fazemos todos os dias.</p>
+      <div class="botoes">
+        <a class="botao botao-oliva" href="#produtos">Conheça os produtos</a>
+        <a class="botao botao-contorno" href="#essencia">Conheça a MSR Melicosméticos</a>
+      </div>
+    </section>
+
+    <section class="secao" id="linhas">
+      <div class="cabecalho-secao">
+        <span class="sobretitulo">Nossas coleções</span>
+        <h2>Quatro formas de cuidar</h2>
+        <p>Conheça nossas linhas e encontre os produtos que combinam com a sua rotina.</p>
+      </div>
+      <div class="linhas">
+        <a class="linha-card" href="#produtos" data-linha-link="Essencial">
+          <span class="linha-numero">01 / CUIDADO</span>
+          <h3>Essencial</h3>
+          <p>Produtos para momentos de cuidado e bem-estar no dia a dia.</p>
+          <span class="texto-link">Explorar linha →</span>
+        </a>
+        <a class="linha-card" href="#produtos" data-linha-link="Nativa">
+          <span class="linha-numero">02 / ABELHAS NATIVAS</span>
+          <h3>Nativa</h3>
+          <p>Mel e própolis das abelhas nativas para corpo, banho e cabelos.</p>
+          <span class="texto-link">Explorar linha →</span>
+        </a>
+        <a class="linha-card" href="#produtos" data-linha-link="Ritual">
+          <span class="linha-numero">03 / ROSTO</span>
+          <h3>Ritual</h3>
+          <p>Rosto em ritual: limpeza, tônico e séruns de dia e de noite, com arroz e mel.</p>
+          <span class="texto-link">Explorar linha →</span>
+        </a>
+        <a class="linha-card" href="#produtos" data-linha-link="Reusa">
+          <span class="linha-numero">04 / REUTILIZÁVEL</span>
+          <h3>Reusa</h3>
+          <p>Bioembalagens de cera de abelha, feitas para usar e voltar.</p>
+          <span class="texto-link">Explorar linha →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="catalogo" id="produtos">
+      <div class="secao">
+        <div class="cabecalho-secao">
+          <span class="sobretitulo">Nosso catálogo</span>
+          <h2>Encontre o seu próximo cuidado</h2>
+          <p>Explore os produtos por nome, linha ou categoria. Consulte pelo WhatsApp os valores, as opções e a disponibilidade atual.</p>
+        </div>
+
+        <div class="filtros" aria-label="Filtros do catálogo">
+          <input class="campo" id="busca" type="search" placeholder="Buscar produto pelo nome..." aria-label="Buscar produto">
+          <select class="campo" id="filtroLinha" aria-label="Filtrar por linha">
+            <option value="">Todas as linhas</option>
+            <option>Essencial</option>
+            <option>Nativa</option>
+            <option>Ritual</option>
+            <option>Reusa</option>
+          </select>
+          <select class="campo" id="filtroCategoria" aria-label="Filtrar por categoria">
+            <option value="">Todas as categorias</option>
+          </select>
+        </div>
+        <button class="limpar" id="limparFiltros">Limpar filtros ×</button>
+        <p class="resultado" id="resultado" aria-live="polite"></p>
+        <div class="produtos" id="listaProdutos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="essencia">
+      <div class="destaque">
+        <div>
+          <span class="sobretitulo">Nossa essência</span>
+          <h2>Cuidar também é escolher com consciência.</h2>
+          <p>A MSR Melicosméticos valoriza o fazer artesanal, a atenção aos detalhes e a busca por escolhas mais responsáveis. Acreditamos que o cuidado pode ser um momento de conexão consigo, com as pessoas e com o mundo ao redor.</p>
+          <p>Nossa proposta é construir uma marca próxima, transparente e comprometida com a qualidade, respeitando a singularidade de cada produto.</p>
+          <a class="botao botao-oliva" href="#contato">Converse com a gente</a>
+        </div>
+        <div class="destaque-bloco">
+          “Pequenos rituais, escolhas conscientes e cuidado em cada detalhe.”
+        </div>
+      </div>
+    </section>
+
+    <section class="desenvolvimento" id="novidades">
+      <div class="secao">
+        <div class="cabecalho-secao">
+          <span class="sobretitulo">Novidades e desenvolvimento</span>
+          <h2>Uma marca em constante construção</h2>
+          <p>Novas ideias, aprimoramentos e produtos fazem parte da nossa jornada. Alguns itens podem estar em desenvolvimento, passando por reformulação ou temporariamente indisponíveis.</p>
+        </div>
+        <div class="desenvolvimento-card">
+          <h3>Acompanhe os próximos passos</h3>
+          <p>Quer saber sobre um produto ou acompanhar as novidades da MSR Melicosméticos? Entre em contato. Teremos prazer em informar o que já está disponível e compartilhar novidades confirmadas.</p>
+          <a class="botao botao-terra" href="https://wa.me/5531984144772?text=Olá!%20Gostaria%20de%20acompanhar%20as%20novidades%20da%20MSR%20Melicosm%C3%A9ticos." target="_blank" rel="noopener noreferrer">Quero saber das novidades</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="secao">
+        <span class="sobretitulo">Estamos por aqui</span>
+        <h2>Vamos conversar?</h2>
+        <p>Ficou com dúvidas sobre um produto, ingredientes, modo de uso, preço ou disponibilidade? Fale com a MSR Melicosméticos pelo WhatsApp.</p>
+        <a class="botao" style="background:#f8f4eb;color:#593b30" href="https://wa.me/5531984144772?text=Olá!%20Vim%20pelo%20site%20da%20MSR%20Melicosm%C3%A9ticos." target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="rodape">
+      <div>
+        <a class="marca" href="#inicio">
+          <span class="marca-nome">MSR SANTA ROSA</span>
+          <span class="marca-sub">MSR MELICOSMÉTICOS</span>
+        </a>
+        <p>© <span id="ano"></span> MSR Santa Rosa · MSR Melicosméticos. Todos os direitos reservados.</p>
+      </div>
+      <div class="rodape-links">
+        <a href="#linhas">Nossas linhas</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#essencia">Nossa essência</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="modalProduto" aria-labelledby="modalTitulo">
+    <div class="modal-conteudo" id="modalConteudo"></div>
+  </dialog>
+
+  <script>
+    const WHATSAPP = "5531984144772";
+
+    const produtos = [
+      { nome: "Bálsamo hidratante cicatrizante", linha: "Essencial", categoria: "Corpo", conteudo: "20 g", apresentacao: "Pote plástico" },
+      { nome: "Cera hidratante de cutículas", linha: "Essencial", categoria: "Unhas", conteudo: "15 g", apresentacao: "Pote plástico" },
+      { nome: "Escalda-pés", linha: "Essencial", categoria: "Pés", conteudo: "20 g", apresentacao: "Tubete" },
+      { nome: "Fluido fungicida para unhas", linha: "Essencial", categoria: "Unhas", conteudo: "30 ml", apresentacao: "Frasco plástico" },
+      { nome: "Repelente bifásico", linha: "Essencial", categoria: "Corpo", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Vela de massagem", linha: "Essencial", categoria: "Corpo", conteudo: "150 g", apresentacao: "Lata decorada" },
+
+      { nome: "Banho de mel", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "250 ml", apresentacao: "Frasco plástico" },
+      { nome: "Banho de mel", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Condicionador sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "50 g", apresentacao: "Caixa kraft" },
+      { nome: "Hidratante corporal — manteiga", linha: "Nativa", categoria: "Corpo", conteudo: "150 g", apresentacao: "Pote plástico" },
+      { nome: "Hidratante corporal", linha: "Nativa", categoria: "Corpo", conteudo: "50 g", apresentacao: "Pote plástico" },
+      { nome: "Hidratante facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "30 g", apresentacao: "Pote plástico" },
+      { nome: "Lip balm mel e própolis", linha: "Nativa", categoria: "Lábios", conteudo: "4,5 g", apresentacao: "Lipstick" },
+      { nome: "Sabonete abelha mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "45 g", apresentacao: "Plástico" },
+      { nome: "Sabonete abelha mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "80 g", apresentacao: "Plástico" },
+      { nome: "Sabonete em barra com bucha vegetal", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "180 g", apresentacao: "Plástico" },
+      { nome: "Sabonete em barra mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" },
+      { nome: "Sabonete íntimo líquido", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Sabonete líquido mel e própolis", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Sabonete líquido rosto e corpo", linha: "Nativa", categoria: "Limpeza e banho", conteudo: "250 ml", apresentacao: "Frasco plástico" },
+      { nome: "Sérum facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
+      { nome: "Sérum facial mel e própolis", linha: "Nativa", categoria: "Rosto", conteudo: "20 ml", apresentacao: "Vidro âmbar" },
+      { nome: "Shampoo sólido", linha: "Nativa", categoria: "Cabelos", conteudo: "70 g", apresentacao: "Caixa kraft" },
+
+      { nome: "Gel de limpeza facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+      { nome: "Hidratante corporal banho de mel", linha: "Ritual", categoria: "Corpo", conteudo: "250 ml", apresentacao: "Frasco plástico" },
+      { nome: "Hidratante facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "", apresentacao: "Pote plástico" },
+      { nome: "Sabonete em barra arroz e mel", linha: "Ritual", categoria: "Limpeza e banho", conteudo: "120 g", apresentacao: "Plástico" },
+      { nome: "Sérum facial aquoso — dia", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro transparente" },
+      { nome: "Sérum facial oleoso — noite", linha: "Ritual", categoria: "Rosto", conteudo: "30 ml", apresentacao: "Vidro âmbar" },
+      { nome: "Tônico facial arroz e mel", linha: "Ritual", categoria: "Rosto", conteudo: "120 ml", apresentacao: "Frasco plástico" },
+
+      { nome: "Bioembalagem reutilizável — grande", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" },
+      { nome: "Bioembalagem reutilizável — média", linha: "Reusa", categoria: "Reutilizáveis", conteudo: "Kit com 3 unidades", apresentacao: "Cera de abelha" }
+    ];
+
+    const busca = document.getElementById("busca");
+    const filtroLinha = document.getElementById("filtroLinha");
+    const filtroCategoria = document.getElementById("filtroCategoria");
+    const lista = document.getElementById("listaProdutos");
+    const resultado = document.getElementById("resultado");
+    const modal = document.getElementById("modalProduto");
+    const modalConteudo = document.getElementById("modalConteudo");
+
+    const categorias = [...new Set(produtos.map(p => p.categoria))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+    categorias.forEach(categoria => {
+      const opcao = document.createElement("option");
+      opcao.value = categoria;
+      opcao.textContent = categoria;
+      filtroCategoria.appendChild(opcao);
+    });
+
+    function mensagemWhatsApp(produto) {
+      const conteudo = produto.conteudo ? " (" + produto.conteudo + ")" : "";
+      return "Olá! Gostaria de informações sobre o produto " + produto.nome + conteudo +
+        " da linha " + produto.linha + ". Poderiam me informar o preço, os ingredientes, o modo de uso e a disponibilidade?";
+    }
+
+    function criarBotaoWhatsApp(produto, texto = "Consultar no WhatsApp") {
+      const link = document.createElement("a");
+      link.className = "botao botao-oliva";
+      link.textContent = texto;
+      link.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensagemWhatsApp(produto));
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      return link;
+    }
+
+    function abrirDetalhes(produto) {
+      modalConteudo.replaceChildren();
+
+      const fechar = document.createElement("button");
+      fechar.className = "modal-fechar";
+      fechar.textContent = "Fechar ×";
+      fechar.setAttribute("aria-label", "Fechar detalhes do produto");
+      fechar.addEventListener("click", () => modal.close());
+      modalConteudo.appendChild(fechar);
+
+      const etiqueta = document.createElement("span");
+      etiqueta.className = "etiqueta";
+      etiqueta.textContent = produto.linha;
+      modalConteudo.appendChild(etiqueta);
+
+      const titulo = document.createElement("h2");
+      titulo.id = "modalTitulo";
+      titulo.textContent = produto.nome;
+      modalConteudo.appendChild(titulo);
+
+      const categoria = document.createElement("p");
+      categoria.textContent = "Categoria: " + produto.categoria;
+      modalConteudo.appendChild(categoria);
+
+      const descricao = document.createElement("p");
+      descricao.textContent = "Consulte nossa equipe para conhecer a descrição confirmada deste produto e saber se ele está disponível.";
+      modalConteudo.appendChild(descricao);
+
+      const subtitulo = document.createElement("h3");
+      subtitulo.textContent = "Informações do produto";
+      modalConteudo.appendChild(subtitulo);
+
+      const listaInfo = document.createElement("ul");
+      const infos = [
+        "Preço e disponibilidade: consulte pelo WhatsApp.",
+        "Ingredientes e composição: solicite a lista completa atualizada.",
+        "Modo de uso e cuidados: confirme as orientações específicas deste produto."
+      ];
+      if (produto.conteudo || produto.apresentacao) {
+        infos.push("Apresentação: " + produto.apresentacao + (produto.conteudo ? " · Conteúdo: " + produto.conteudo : ""));
+      }
+      infos.forEach(texto => {
+        const item = document.createElement("li");
+        item.textContent = texto;
+        listaInfo.appendChild(item);
+      });
+      modalConteudo.appendChild(listaInfo);
+
+      const acoes = document.createElement("div");
+      acoes.className = "modal-acoes";
+      acoes.appendChild(criarBotaoWhatsApp(produto, "Consultar este produto"));
+      const voltar = document.createElement("button");
+      voltar.className = "botao botao-contorno";
+      voltar.textContent = "Reusar ao catálogo";
+      voltar.addEventListener("click", () => modal.close());
+      acoes.appendChild(voltar);
+      modalConteudo.appendChild(acoes);
+
+      modal.showModal();
+    }
+
+    function renderizarProdutos() {
+      const termo = busca.value.trim().toLocaleLowerCase("pt-BR");
+      const linha = filtroLinha.value;
+      const categoria = filtroCategoria.value;
+
+      const filtrados = produtos.filter(produto => {
+        const correspondeNome = produto.nome.toLocaleLowerCase("pt-BR").includes(termo);
+        const correspondeLinha = !linha || produto.linha === linha;
+        const correspondeCategoria = !categoria || produto.categoria === categoria;
+        return correspondeNome && correspondeLinha && correspondeCategoria;
+      });
+
+      lista.replaceChildren();
+      resultado.textContent = filtrados.length + (filtrados.length === 1 ? " produto encontrado" : " produtos encontrados");
+
+      if (!filtrados.length) {
+        const vazio = document.createElement("div");
+        vazio.className = "vazio";
+        vazio.textContent = "Não encontramos produtos com esses filtros. Experimente outra busca.";
+        lista.appendChild(vazio);
+        return;
+      }
+
+      filtrados.forEach(produto => {
+        const card = document.createElement("article");
+        card.className = "produto";
+
+        const visual = document.createElement("div");
+        visual.className = "produto-visual";
+        const nomeVisual = document.createElement("span");
+        nomeVisual.textContent = "MSR Melicosméticos";
+        visual.appendChild(nomeVisual);
+        card.appendChild(visual);
+
+        const info = document.createElement("div");
+        info.className = "produto-info";
+
+        const etiqueta = document.createElement("span");
+        etiqueta.className = "etiqueta";
+        etiqueta.textContent = produto.linha;
+        info.appendChild(etiqueta);
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = produto.nome;
+        info.appendChild(titulo);
+
+        const resumo = document.createElement("p");
+        resumo.textContent = produto.categoria + (produto.conteudo ? " · " + produto.conteudo : "") + " · Consulte disponibilidade";
+        info.appendChild(resumo);
+
+        const preco = document.createElement("div");
+        preco.className = "preco";
+        preco.textContent = "Preço sob consulta";
+        info.appendChild(preco);
+
+        const acoes = document.createElement("div");
+        acoes.className = "produto-acoes";
+
+        const detalhes = document.createElement("button");
+        detalhes.type = "button";
+        detalhes.className = "botao botao-contorno";
+        detalhes.textContent = "Ver detalhes";
+        detalhes.addEventListener("click", () => abrirDetalhes(produto));
+        acoes.appendChild(detalhes);
+        acoes.appendChild(criarBotaoWhatsApp(produto, "Consultar produto"));
+
+        info.appendChild(acoes);
+        card.appendChild(info);
+        lista.appendChild(card);
+      });
+    }
+
+    busca.addEventListener("input", renderizarProdutos);
+    filtroLinha.addEventListener("change", renderizarProdutos);
+    filtroCategoria.addEventListener("change", renderizarProdutos);
+
+    document.getElementById("limparFiltros").addEventListener("click", () => {
+      busca.value = "";
+      filtroLinha.value = "";
+      filtroCategoria.value = "";
+      renderizarProdutos();
+    });
+
+    document.querySelectorAll("[data-linha-link]").forEach(link => {
+      link.addEventListener("click", () => {
+        filtroLinha.value = link.dataset.linhaLink;
+        filtroCategoria.value = "";
+        busca.value = "";
+        renderizarProdutos();
+      });
+    });
+
+    const menuBotao = document.getElementById("menuBotao");
+    const menu = document.getElementById("menu");
+    menuBotao.addEventListener("click", () => {
+      const aberto = menu.classList.toggle("aberto");
+      menuBotao.setAttribute("aria-expanded", String(aberto));
+    });
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("aberto");
+        menuBotao.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    modal.addEventListener("click", evento => {
+      if (evento.target === modal) modal.close();
+    });
+
+    document.getElementById("ano").textContent = new Date().getFullYear();
+    renderizarProdutos();
+  </script>
+</body>
+</html>
