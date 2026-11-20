@@ -381,7 +381,7 @@
         <div class="cabecalho-secao centralizado">
           <span class="sobretitulo">Nosso catálogo</span>
           <h2>Encontre o seu próximo sabor</h2>
-          <p>Explore os produtos por nome, linha ou categoria. Consulte pelo WhatsApp os valores, as opções e a disponibilidade atual.</p>
+          <p>Explore os produtos por nome, linha ou categoria. Consulte pelo WhatsApp os valores e as opções.</p>
         </div>
 
         <div class="filtros" aria-label="Filtros do catálogo">
@@ -449,7 +449,7 @@
       <div class="secao">
         <span class="sobretitulo">Estamos por aqui</span>
         <h2>Vamos conversar?</h2>
-        <p>Ficou com dúvidas sobre um produto, ingredientes, modo de uso, preço ou disponibilidade? Fale com a MSR Meliprodutos pelo WhatsApp.</p>
+        <p>Ficou com dúvidas sobre um produto, ingredientes, modo de uso, preço? Fale com a MSR Meliprodutos pelo WhatsApp.</p>
         <a class="botao" style="background:#f8f4eb;color:#593b30" href="https://wa.me/5531984144772?text=Olá!%20Vim%20pelo%20site%20da%20MSR%20Meliprodutos." target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp ↗</a>
       </div>
     </section>
@@ -517,7 +517,7 @@
     function mensagemWhatsApp(produto) {
       const conteudo = produto.conteudo ? " (" + produto.conteudo + ")" : "";
       return "Olá! Gostaria de informações sobre o produto " + produto.nome + conteudo +
-        " da linha " + produto.linha + (produto.preco ? " — vi no catálogo por " + formatarPreco(produto.preco) : "") + ". Poderiam me informar os ingredientes, o modo de uso e a disponibilidade?";
+        " da linha " + produto.linha + (produto.preco ? " — vi no catálogo por " + formatarPreco(produto.preco) : "") + ". Poderiam me informar os ingredientes e o modo de uso?";
     }
 
     function criarBotaoWhatsApp(produto, texto = "Consultar no WhatsApp") {
@@ -577,7 +577,7 @@
       modalConteudo.appendChild(categoria);
 
       const descricao = document.createElement("p");
-      descricao.textContent = produto.descricao || "Consulte nossa equipe para conhecer a descrição confirmada deste produto e saber se ele está disponível.";
+      descricao.textContent = produto.descricao || "Consulte nossa equipe para conhecer a descrição confirmada deste produto ";
       modalConteudo.appendChild(descricao);
 
       const subtitulo = document.createElement("h3");
@@ -586,11 +586,11 @@
 
       const listaInfo = document.createElement("ul");
       const infos = [
-        "Preço e disponibilidade: consulte pelo WhatsApp.",
+        "Preço: consulte pelo WhatsApp.",
         "Ingredientes e composição: solicite a lista completa atualizada.",
         "Modo de uso e cuidados: confirme as orientações específicas deste produto."
       ];
-      if (produto.preco) infos[0] = "Preço: " + formatarPreco(produto.preco) + " · Disponibilidade: consulte pelo WhatsApp.";
+      if (produto.preco) infos[0] = "Preço: " + formatarPreco(produto.preco) + ".";
       if (produto.conteudo || produto.apresentacao) {
         infos.push("Apresentação: " + produto.apresentacao + (produto.conteudo ? " · Conteúdo: " + produto.conteudo : ""));
       }
@@ -671,7 +671,7 @@
         info.appendChild(titulo);
 
         const resumo = document.createElement("p");
-        resumo.textContent = produto.categoria + (produto.conteudo ? " · " + produto.conteudo : "") + " · Consulte disponibilidade";
+        resumo.textContent = produto.categoria + (produto.conteudo ? " · " + produto.conteudo : "");
         info.appendChild(resumo);
 
         const preco = document.createElement("div");
