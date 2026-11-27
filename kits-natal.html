@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#593b30">
+  <meta name="description" content="Kits de Natal MSR Santa Rosa — presentes artesanais com mel, própolis e melicosméticos das abelhas nativas. Matozinhos, MG.">
+  <title>Kits de Natal | Catálogo — MSR Santa Rosa</title>
+  <style>
+    :root {
+      --terra: #593b30;
+      --terra-claro: #805d4c;
+      --creme: #f8f4eb;
+      --branco: #fffdf8;
+      --oliva: #626b45;
+      --oliva-claro: #e9ebdf;
+      --bronze: #b28a58;
+      --texto: #38352e;
+      --suave: #777167;
+      --borda: #e8e0d3;
+      --sombra: 0 10px 28px rgba(65, 48, 35, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0;
+      background: var(--creme);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+
+    .topo {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--terra);
+      color: var(--creme);
+      box-shadow: 0 3px 15px #00000012;
+    }
+    .topo-interno {
+      max-width: 1180px;
+      margin: auto;
+      padding: 15px 24px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .marca { display: inline-block; line-height: 1.15; }
+    .marca-nome {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+    }
+    .marca-sub {
+      display: block;
+      margin-top: 6px;
+      color: #e2c7a2;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    .menu { display: flex; flex-wrap: wrap; gap: 22px; font-size: 13px; }
+    .menu a:hover { color: #e2c7a2; }
+    .menu-botao {
+      display: none;
+      color: var(--creme);
+      border: 1px solid #ffffff55;
+      background: transparent;
+      border-radius: 8px;
+      padding: 7px 11px;
+    }
+
+    .hero {
+      background: var(--branco);
+      padding: 76px 24px 68px;
+      text-align: center;
+      border-bottom: 1px solid var(--borda);
+    }
+    .sobretitulo {
+      color: var(--oliva);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal; }
+    .hero h1 {
+      max-width: 760px;
+      margin: 16px auto;
+      color: var(--terra);
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.12;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 27px;
+      color: var(--suave);
+      font-size: 16px;
+    }
+    .botoes { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      padding: 12px 19px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .botao:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+    .botao-oliva { background: var(--oliva); color: white; }
+    .botao-terra { background: var(--terra); color: white; }
+    .botao-contorno { border-color: var(--oliva); color: var(--oliva); background: transparent; }
+
+    .aviso {
+      background: var(--terra);
+      color: var(--creme);
+      text-align: center;
+      padding: 18px 24px;
+    }
+    .aviso strong { color: #e2c7a2; letter-spacing: 1px; }
+    .aviso p { margin: 0; font-size: 15px; }
+
+    .secao { max-width: 1180px; margin: auto; padding: 65px 24px; }
+    .cabecalho-secao { max-width: 670px; margin-bottom: 30px; }
+    .cabecalho-secao h2 {
+      color: var(--terra);
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 8px 0 12px;
+    }
+    .cabecalho-secao p { margin: 0; color: var(--suave); }
+    .cabecalho-secao.centralizado { margin-left: auto; margin-right: auto; text-align: center; }
+
+    .catalogo { background: var(--branco); border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+    .catalogo .secao { padding-top: 65px; }
+    .produtos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; }
+    .produto {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: var(--branco);
+      min-width: 0;
+    }
+    .carrossel { position: relative; overflow: hidden; background: var(--branco); }
+    .carrossel img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .carrossel-botao {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--borda);
+      background: #fffdf8e6;
+      color: var(--terra);
+      font-size: 18px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+    .carrossel-botao.anterior { left: 8px; }
+    .carrossel-botao.proxima { right: 8px; }
+    .carrossel-pontos {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+    .carrossel-pontos span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffffff99;
+      border: 1px solid #593b3088;
+    }
+    .carrossel-pontos span.ativo { background: var(--terra); }
+    .produto-info { padding: 16px; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+    .etiqueta {
+      display: inline-block;
+      color: var(--oliva);
+      background: var(--oliva-claro);
+      border-radius: 4px;
+      padding: 3px 7px;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .produto h3 { color: var(--terra); font-size: 19px; line-height: 1.3; margin: 10px 0 7px; }
+    .produto p { color: var(--suave); font-size: 12px; margin: 0 0 14px; }
+    .preco { color: var(--terra); font-size: 19px; font-weight: bold; margin-top: auto; margin-bottom: 13px; }
+    .produto-acoes { width: 100%; display: grid; gap: 8px; }
+    .produto-acoes .botao { width: 100%; padding: 10px 8px; font-size: 12px; }
+
+    .contato { background: var(--terra); color: var(--creme); text-align: center; }
+    .contato .secao { padding-top: 55px; padding-bottom: 55px; }
+    .contato h2 { font-size: 37px; margin: 7px 0; }
+    .contato p { color: #e2d6c9; max-width: 580px; margin: 0 auto 23px; }
+    .contato .sobretitulo { color: #e2c7a2; }
+
+    footer { background: #3e2b24; color: #eee5d8; padding: 28px 24px; }
+    .rodape {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .rodape p { margin: 5px 0; font-size: 12px; color: #d0c0b1; }
+    .rodape-links { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; }
+
+    @media (max-width: 900px) {
+      .produtos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .menu { gap: 12px; }
+    }
+    @media (max-width: 650px) {
+      .topo-interno { padding: 12px 16px; flex-wrap: wrap; }
+      .marca-nome { font-size: 23px; }
+      .menu-botao { display: inline-block; }
+      .menu { display: none; width: 100%; flex-direction: column; gap: 0; padding: 5px 0 10px; }
+      .menu.aberto { display: flex; }
+      .menu a { padding: 9px 0; border-top: 1px solid #ffffff20; }
+      .hero { padding: 52px 20px; }
+      .hero h1 { font-size: 39px; }
+      .secao { padding: 45px 17px; }
+      .produtos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .carrossel img { height: 220px; }
+      .produto-info { padding: 12px; }
+      .produto h3 { font-size: 17px; }
+      .produto p { font-size: 12px; }
+      .contato h2 { font-size: 31px; }
+    }
+    @media (max-width: 360px) {
+      .produtos { grid-template-columns: 1fr 1fr; }
+      .produto-acoes .botao { font-size: 11px; padding: 9px 4px; }
+      .marca-nome { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-interno">
+      <a class="marca" href="#inicio" aria-label="Kits de Natal MSR Santa Rosa, início">
+        <span class="marca-nome">MSR SANTA ROSA</span>
+        <span class="marca-sub">KITS DE NATAL</span>
+      </a>
+      <button class="menu-botao" id="menuBotao" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+      <nav class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#kits">Kits</a>
+        <a href="index.html">MeliCosméticos</a>
+        <a href="meliprodutos.html">Meliprodutos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <span class="sobretitulo">MSR Santa Rosa · Edição de Natal</span>
+      <h1>Presentes que nascem<br>das abelhas nativas.</h1>
+      <p>Kits montados à mão, um a um, com méis, própolis e melicosméticos artesanais — prontos para presentear, com cartão e mimos.</p>
+      <div class="botoes">
+        <a class="botao botao-oliva" href="#kits">Ver os kits</a>
+        <a class="botao botao-contorno" href="#contato">Fazer uma encomenda</a>
+      </div>
+    </section>
+
+    <div class="aviso">
+      <p><strong>FAÇA SUA ENCOMENDA</strong> · Os kits são montados à mão, sob encomenda — <strong>prazo de entrega de 4 dias</strong>.</p>
+    </div>
+
+    <section class="catalogo" id="kits">
+      <div class="secao">
+        <div class="cabecalho-secao centralizado">
+          <span class="sobretitulo">Nossos kits de Natal</span>
+          <h2>Escolha o seu presente</h2>
+          <p>Cada kit tem nome próprio e uma seleção diferente. Passe as fotos para ver o kit aberto e embalado, pronto para presentear.</p>
+        </div>
+        <div class="produtos" id="listaKits"></div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="secao">
+        <span class="sobretitulo">Estamos por aqui</span>
+        <h2>Vamos conversar?</h2>
+        <p>Encomendas, dúvidas sobre um kit ou um presente sob medida: fale com a MSR Santa Rosa pelo WhatsApp. Lembre-se do prazo de 4 dias para a entrega.</p>
+        <a class="botao" style="background:#f8f4eb;color:#593b30" href="https://wa.me/5531984144772?text=Olá!%20Vim%20pelo%20catálogo%20de%20Kits%20de%20Natal%20da%20MSR%20Santa%20Rosa." target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="rodape">
+      <div>
+        <a class="marca" href="#inicio">
+          <span class="marca-nome">MSR SANTA ROSA</span>
+          <span class="marca-sub">KITS DE NATAL</span>
+        </a>
+        <p>© <span id="ano"></span> MSR Santa Rosa. Todos os direitos reservados.</p>
+      </div>
+      <div class="rodape-links">
+        <a href="index.html">MeliCosméticos</a>
+        <a href="meliprodutos.html">Meliprodutos</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP = "5531984144772";
+
+    const kits = [
+      { nome: "Kit Mimo", apresentacao: "Caixa de madeira", conteudo: "Bálsamo Artesanal Própolis e Melaleuca 20 g · Lip Balm Mel e Própolis 4,5 g · Sabonete artesanal de mel · e mimos", preco: 57, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-3-fundo-natalino-0-da7a32f3-1fcc-437f-9199-9bb501de061e-481d5a6250f1742af417958057733836-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-mimo-fundo-natalino-0-b440f059-094d-4195-b2f5-bebb8c42e090-4e2f15b821d928a6f617958057791190-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_mimo_1-69ac901c0809fe297317958057861018-640-0.webp"] },
+      { nome: "Kit Mel & Própolis", apresentacao: "Cesta decorada", conteudo: "Mel Gourmet Uruçu Amarela 100 g · Extrato de Própolis de Mandaçaia 30 ml · e mimos", preco: 73, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-4-fundo-natalino-0-63db9494-b4f6-4c2f-af07-6cefb8dbf48f-3bb018b9ca196d91a117958057921878-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-mel-propolis-fundo-na-0-f2b6da4c-0722-401d-807a-34f69fd277df-2b382e2ca1f3e69c1017958057992122-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_mel_e_pr_polis_1-22d231c8cd0afb0c0117958058050197-640-0.webp"] },
+      { nome: "Kit Mãos Cuidadas", apresentacao: "Caixa de madeira", conteudo: "Fluido para Unhas 35 ml · Cera para Cutículas 15 g · Bálsamo Artesanal Própolis e Melaleuca 20 g · Lip Balm Mel e Própolis 4,5 g · e mimos", preco: 93, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-7-fundo-natalino-0-39dc380d-e7a3-478f-b1dd-7691b27c9ece-a30dad7bb544c220e217958058521908-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-maos-cuidadas-fundo-n-0-67079215-22fe-40eb-ad0b-bc710a237694-12b6a37462decd910117958058594467-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_m_os_cuidadas_1-4870b5cd25f232e93117958058685260-640-0.webp"] },
+      { nome: "Kit Manhã de Natal", apresentacao: "Caixa de madeira", conteudo: "Banho de Mel 250 ml · Sabonete Líquido Rosto e Corpo 250 ml · Lip Balm Mel e Própolis 4,5 g · Sabonete artesanal de mel · e mimos", preco: 98, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-natal-fundo-natalino-0-2eede734-d821-4837-9a76-55826ffaa880-1231164236e521a9bc17958057494952-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-manha-de-natal-fundo-0-e119e1df-b304-4357-899e-a752406c0984-4da5398c67bec9cbf317958057554638-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_manh__de_natal_1-0e4dad6c29382ff3ff17958057652825-640-0.webp"] },
+      { nome: "Kit Fios de Festa", apresentacao: "Caixa de madeira", conteudo: "Shampoo Sólido de Açaí 70 g · Condicionador Sólido 50 g · Lip Balm Mel e Própolis 4,5 g · Sabonete artesanal de mel · e mimos", preco: 119, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-5-fundo-natalino-0-f430082d-0c60-4966-9f95-fd1f6ed17f75-2de8134166b855fc5a17958058113042-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-fios-de-festa-fundo-n-0-a346aea3-b650-4afa-9b23-eed1e8358b36-cd447eb7349b36a74317958058180103-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_fios_de_festa_1-420ca291967083ff9817958058243610-640-0.webp"] },
+      { nome: "Kit Degustação de Méis", apresentacao: "Caixa com visor", conteudo: "Mel Gourmet Uruçu Amarela 130 g · Mel Gourmet Jataí 130 g · Extrato de Própolis de Mandaçaia 30 ml · e mimos", preco: 139, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-6-fundo-natalino-0-21167d99-45d4-4e75-ba41-e765de111edc-756473e364334f996817958058330998-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-degustacao-fundo-nata-0-467a68d8-4e3d-4a83-a971-1338f0fff7f1-3481e6d4e751af5b0f17958058392337-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_degust__o_de_meis_1-b8376200f006ca97fb17958058457965-640-0.webp"] },
+      { nome: "Kit Cuidado Completo", apresentacao: "Caixa de madeira", conteudo: "Sérum Facial Mel e Própolis 30 ml · Hidratante Facial Mel e Própolis 60 ml · Hidratante Corporal Manteiga 150 g · Sabonete Íntimo Líquido 120 ml · Lip Balm Mel e Própolis 4,5 g · e mimos", preco: 189, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-1-fundo-natalino-0-f5c3c008-de73-4607-9404-e38db46c9fa7-be136e7ed7885a150a17958057327624-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-cuidado-completo-fund-0-c7f041d1-5d30-4add-90d3-74d6c9f906e7-2828fe1842d8b3a7cc17958057385141-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/kit_cuidado_completo_1-cc3b62a23ecdcc605817958057428123-640-0.webp"] },
+      { nome: "Kit Banho Completo", apresentacao: "Caixa de madeira", conteudo: "Banho de Mel 250 ml · Sabonete Líquido Rosto e Corpo 250 ml · Sérum Facial Mel e Própolis 30 ml · Hidratante Facial Mel e Própolis 60 ml · Sabonete Artesanal em Barra · Lip Balm Mel e Própolis 4,5 g · e mimos", preco: 238, fotos: ["https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-kit-8-fundo-natalino-0-3c8f9729-a7ca-4377-ae22-ba5dc8706fc0-3519fc75330cd39ac917958058747369-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/media-generation-embalado-banho-completo-fundo-0-be58798b-2ff4-4b38-96da-b58a4eb37d98-5cbe1ffe198606864a17958058821875-640-0.webp", "https://dcdn-us.mitiendanube.com/stores/004/939/598/products/lit_banho_completo_1-a9120e5a01ca4f9c8f17958058948824-640-0.webp"] }
+    ];
+
+    const lista = document.getElementById("listaKits");
+
+    function formatarPreco(valor) {
+      return "R$ " + valor.toFixed(2).replace(".", ",");
+    }
+
+    function mensagemWhatsApp(kit) {
+      return "Olá! Quero encomendar o " + kit.nome + " — " + formatarPreco(kit.preco) +
+        " (vi no catálogo de Kits de Natal). Pode me passar os próximos passos?";
+    }
+
+    kits.forEach(kit => {
+      const cartao = document.createElement("article");
+      cartao.className = "produto";
+
+      const carrossel = document.createElement("div");
+      carrossel.className = "carrossel";
+      const imagem = document.createElement("img");
+      imagem.src = kit.fotos[0];
+      imagem.alt = kit.nome;
+      imagem.loading = "lazy";
+      carrossel.appendChild(imagem);
+
+      let indice = 0;
+      const pontos = document.createElement("div");
+      pontos.className = "carrossel-pontos";
+      kit.fotos.forEach((_, i) => {
+        const ponto = document.createElement("span");
+        if (i === 0) ponto.className = "ativo";
+        pontos.appendChild(ponto);
+      });
+
+      function mostrar(novo) {
+        indice = (novo + kit.fotos.length) % kit.fotos.length;
+        imagem.src = kit.fotos[indice];
+        [...pontos.children].forEach((p, i) => p.classList.toggle("ativo", i === indice));
+      }
+
+      const anterior = document.createElement("button");
+      anterior.className = "carrossel-botao anterior";
+      anterior.textContent = "‹";
+      anterior.setAttribute("aria-label", "Foto anterior de " + kit.nome);
+      anterior.addEventListener("click", () => mostrar(indice - 1));
+      const proxima = document.createElement("button");
+      proxima.className = "carrossel-botao proxima";
+      proxima.textContent = "›";
+      proxima.setAttribute("aria-label", "Próxima foto de " + kit.nome);
+      proxima.addEventListener("click", () => mostrar(indice + 1));
+
+      carrossel.appendChild(anterior);
+      carrossel.appendChild(proxima);
+      carrossel.appendChild(pontos);
+      cartao.appendChild(carrossel);
+
+      const info = document.createElement("div");
+      info.className = "produto-info";
+
+      const etiqueta = document.createElement("span");
+      etiqueta.className = "etiqueta";
+      etiqueta.textContent = kit.apresentacao;
+      info.appendChild(etiqueta);
+
+      const titulo = document.createElement("h3");
+      titulo.textContent = kit.nome;
+      info.appendChild(titulo);
+
+      const conteudo = document.createElement("p");
+      conteudo.textContent = kit.conteudo;
+      info.appendChild(conteudo);
+
+      const preco = document.createElement("div");
+      preco.className = "preco";
+      preco.textContent = formatarPreco(kit.preco);
+      info.appendChild(preco);
+
+      const acoes = document.createElement("div");
+      acoes.className = "produto-acoes";
+      const botao = document.createElement("a");
+      botao.className = "botao botao-oliva";
+      botao.textContent = "Encomendar pelo WhatsApp";
+      botao.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensagemWhatsApp(kit));
+      botao.target = "_blank";
+      botao.rel = "noopener noreferrer";
+      acoes.appendChild(botao);
+      info.appendChild(acoes);
+
+      cartao.appendChild(info);
+      lista.appendChild(cartao);
+    });
+
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    const menuBotao = document.getElementById("menuBotao");
+    const menu = document.getElementById("menu");
+    menuBotao.addEventListener("click", () => {
+      const aberto = menu.classList.toggle("aberto");
+      menuBotao.setAttribute("aria-expanded", aberto);
+    });
+  </script>
+</body>
+</html>
